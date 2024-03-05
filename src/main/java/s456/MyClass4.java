@@ -1,4 +1,4 @@
-package s45;
+package s456;
 
 import java.util.List;
 
@@ -10,8 +10,10 @@ public class MyClass4 implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 10000; i++) {
-            list.add((int) (Math.random() * 10000));
+        synchronized(list) {
+            for (int i = 0; i < 10000; i++) {
+                list.add((int) (Math.random() * 10000));
+            }
         }
     }
 }

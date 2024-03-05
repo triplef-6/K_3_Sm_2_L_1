@@ -1,6 +1,7 @@
-package s45;
+package s456;
 
 import java.util.List;
+import java.util.Random;
 
 public class MyClass5 implements Runnable {
     private List<Integer> list;
@@ -10,14 +11,10 @@ public class MyClass5 implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 10000; i++) {
-//            int k;
-//            do {
-//                k = (int) (Math.random() * 10);
-//            } while (k >=  list.size());
-
-            int k = (int) (Math.random() * 20);
-            if (k < list.size()) {
+        synchronized(list) {
+            Random r = new Random();
+            for (int i = 0; i < 10000; i++) {
+                int k = r.nextInt(list.size());
                 list.remove(k);
             }
         }
