@@ -1,4 +1,4 @@
-package s123;
+package T123;
 
 public class MyClass2 implements Runnable {
     public MyClass2() {
